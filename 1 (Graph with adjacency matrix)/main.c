@@ -12,7 +12,11 @@ enum { WHITE, GREY, BLACK };
 /*
  * Structure representing a single vertex in the graph.
  */
-typedef struct vertex_s {
+
+typedef struct vertex_s vertex_t;
+typedef struct graph_s  graph_t;
+
+struct vertex_s {
     int id;      // The integer identifier of the vertex
     int color;   // The color of the vertex (WHITE, GREY, BLACK)
     int dist;    // Distance value (used in BFS/DFS or shortest path)
@@ -20,7 +24,7 @@ typedef struct vertex_s {
     int dtime;   // Discovery time (for DFS)
     int ftime;   // Finishing time (for DFS)
     int scc;     // Strongly connected component identifier (if needed)
-} vertex_t;
+};
 
 /*
  * Structure representing the entire graph.
@@ -31,13 +35,13 @@ typedef struct vertex_s {
  *   - The number of edges (ne)
  *   - A flag indicating if the graph is directed (directed)
  */
-typedef struct graph_s {
+struct graph_s {
     vertex_t *v;     // Array of vertices
     int **rowAdj;    // 2D adjacency matrix for edges/weights
     int nv;          // Number of vertices
     int ne;          // Number of edges
     int directed;    // 1 if directed, 0 if undirected
-} graph_t;
+};
 
 /*************************************************************
  * Function: allocate_matrix
