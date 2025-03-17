@@ -34,8 +34,8 @@ graph_t *graph_load(const char *filename) {
         // sscanf parses two integers from the line: g->nv and dir.
         // If it doesn’t find exactly 2 integers, exit with an error.
         if (sscanf(line, "%d %d", &g->nv, &dir) != 2) {
-            fprintf(stderr, "Error reading number of vertices/direction\n");
-            exit(EXIT_FAILURE);
+             sscanf(line, "%d", &g->nv);
+             dir = 1;
         }
     } else {
         // If fgets fails, the file might be empty or invalid.
