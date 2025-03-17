@@ -88,8 +88,8 @@ graph_t *graph_load(const char *filename) {
     /* Read the first line to get nv and dir */
     if (fgets(line, MAX_LINE, fp) != NULL) {
         if (sscanf(line, "%d %d", &g->nv, &dir) != 2) {
-            fprintf(stderr, "Error reading number of vertices/direction\n");
-            exit(EXIT_FAILURE);
+         sscanf(line, "%d", &g->nv);
+         dir = 1;
         }
     } else {
         fprintf(stderr, "Error: empty or invalid file\n");
